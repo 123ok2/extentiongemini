@@ -1,0 +1,638 @@
+/* ==========================================================================
+   🎓 AI Study Exporter - Scientific Academic UI Theme v2.4.0
+   Thiết kế chuẩn mực học thuật, siêu mỏng nhẹ, hòa hợp 100% với Gemini & ChatGPT
+   ========================================================================== */
+
+/* 1. Điểm nhấn đoạn tin nhắn được chọn (Academic Focus Accent) */
+.study-turn-selected {
+  position: relative !important;
+  border-left: 3.5px solid #2563eb !important;
+  background-color: rgba(37, 99, 235, 0.025) !important;
+  border-radius: 4px 8px 8px 4px !important;
+  padding-left: 10px !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-sizing: border-box !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .study-turn-selected {
+    border-left-color: #3b82f6 !important;
+    background-color: rgba(59, 130, 246, 0.05) !important;
+  }
+}
+
+/* 2. Thanh công cụ cho tin nhắn Học viên (User Question Action Bar) */
+.study-user-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+  margin: 4px 0 6px 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  clear: both !important;
+  box-sizing: border-box !important;
+  user-select: none !important;
+}
+
+/* 3. Thanh công cụ học thuật cho Lời giải AI (Assistant Academic Header) */
+.study-assistant-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin: 6px 0 12px 0 !important;
+  padding: 4px 0 6px 0 !important;
+  border-bottom: 1px dashed rgba(203, 213, 225, 0.7) !important;
+  background: transparent !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 12px !important;
+  color: #475569 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  clear: both !important;
+  box-sizing: border-box !important;
+  user-select: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .study-assistant-bar {
+    border-bottom-color: rgba(51, 65, 85, 0.7) !important;
+    color: #94a3b8 !important;
+  }
+}
+
+.study-bar-meta {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  color: #64748b !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .study-bar-meta { color: #94a3b8 !important; }
+}
+
+.study-meta-dot {
+  color: #cbd5e1 !important;
+  font-size: 9px !important;
+}
+
+.study-bar-actions {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  position: relative !important;
+}
+
+/* 4. Nút bấm phong cách Academic Pill (Google Material / Apple UI) */
+.study-pill-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 3px 10px !important;
+  border-radius: 20px !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  border: 1px solid #cbd5e1 !important;
+  background: #ffffff !important;
+  color: #334155 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  line-height: 1.4 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+}
+
+.study-pill-btn:hover {
+  background: #f8fafc !important;
+  border-color: #94a3b8 !important;
+  color: #0f172a !important;
+}
+
+.study-pill-btn.checked {
+  background: #eff6ff !important;
+  border-color: #2563eb !important;
+  color: #1d4ed8 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .study-pill-btn {
+    background: #1e293b !important;
+    border-color: #475569 !important;
+    color: #e2e8f0 !important;
+    box-shadow: none !important;
+  }
+  .study-pill-btn:hover {
+    background: #334155 !important;
+    color: #ffffff !important;
+  }
+  .study-pill-btn.checked {
+    background: #1e3a8a !important;
+    border-color: #3b82f6 !important;
+    color: #93c5fd !important;
+  }
+}
+
+.study-cb-native {
+  width: 14px !important;
+  height: 14px !important;
+  margin: 0 !important;
+  accent-color: #2563eb !important;
+  cursor: pointer !important;
+}
+
+/* Nút tác vụ phụ (Xuất nhanh, Chép) */
+.study-sub-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  border: 1px solid rgba(203, 213, 225, 0.8) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #475569 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.study-sub-btn:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #94a3b8 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .study-sub-btn {
+    background: rgba(30, 41, 59, 0.9) !important;
+    border-color: #475569 !important;
+    color: #cbd5e1 !important;
+  }
+  .study-sub-btn:hover {
+    background: #334155 !important;
+    color: #f8fafc !important;
+  }
+}
+
+/* 5. Dropdown Menu xuất nhanh tại chỗ */
+.study-quick-dropdown {
+  position: absolute !important;
+  top: 100% !important;
+  right: 0 !important;
+  margin-top: 4px !important;
+  z-index: 100000 !important;
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12) !important;
+  padding: 4px !important;
+  min-width: 175px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .study-quick-dropdown {
+    background: #1e293b !important;
+    border-color: #475569 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+  }
+}
+
+.study-drop-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  color: #334155 !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  width: 100% !important;
+}
+
+.study-drop-item:hover {
+  background: #eff6ff !important;
+  color: #2563eb !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .study-drop-item { color: #cbd5e1 !important; }
+  .study-drop-item:hover { background: #334155 !important; color: #60a5fa !important; }
+}
+
+/* 6. Thanh Dock Nổi Ở Góc Màn Hình (Academic Floating Capsule Dock - Draggable & Collapsible) */
+#study-float-dock {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 2147483640 !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1.5px solid rgba(203, 213, 225, 0.9) !important;
+  border-radius: 16px !important;
+  padding: 8px 12px !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  min-width: 260px !important;
+  max-width: 320px !important;
+  opacity: 0.92 !important;
+  transition: opacity 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease !important;
+  user-select: none !important;
+}
+
+#study-float-dock:hover {
+  opacity: 1 !important;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18), 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+#study-float-dock.minimized {
+  min-width: unset !important;
+  max-width: fit-content !important;
+  padding: 6px 10px !important;
+  border-radius: 9999px !important;
+  gap: 0 !important;
+  cursor: move !important;
+}
+
+#study-float-dock.minimized .dock-body,
+#study-float-dock.minimized .dock-footer {
+  display: none !important;
+}
+
+#study-float-dock.study-dock-hidden {
+  display: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  #study-float-dock {
+    background: rgba(15, 23, 42, 0.92) !important;
+    border-color: #334155 !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5) !important;
+  }
+}
+
+.dock-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  cursor: grab !important;
+  gap: 8px !important;
+  padding: 2px 0 !important;
+}
+
+.dock-header:active {
+  cursor: grabbing !important;
+}
+
+.dock-brand {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  color: #0f172a !important;
+  pointer-events: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dock-brand { color: #f8fafc !important; }
+}
+
+.dock-badge {
+  background: #eff6ff !important;
+  color: #1d4ed8 !important;
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  padding: 1.5px 6.5px !important;
+  border-radius: 12px !important;
+  border: 1px solid #dbeafe !important;
+  white-space: nowrap !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dock-badge { background: #1e3a8a !important; color: #93c5fd !important; border-color: #1d4ed8 !important; }
+}
+
+.dock-ctrl-btns {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2px !important;
+}
+
+.dock-ctrl-btn {
+  background: transparent !important;
+  border: none !important;
+  color: #64748b !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  padding: 2px 5px !important;
+  line-height: 1 !important;
+  border-radius: 4px !important;
+  transition: all 0.15s ease !important;
+}
+
+.dock-ctrl-btn:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dock-ctrl-btn:hover {
+    background: #334155 !important;
+    color: #f8fafc !important;
+  }
+}
+
+/* Thẻ tab siêu nhỏ dính sát mép màn hình khi ẩn dock */
+#study-dock-edge-trigger {
+  position: fixed !important;
+  right: 0 !important;
+  bottom: 120px !important;
+  z-index: 2147483640 !important;
+  background: #2563eb !important;
+  color: #ffffff !important;
+  border-radius: 8px 0 0 8px !important;
+  padding: 8px 6px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 4px !important;
+  box-shadow: -2px 4px 14px rgba(37, 99, 235, 0.35) !important;
+  cursor: pointer !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  transition: transform 0.2s ease, background 0.15s ease !important;
+  user-select: none !important;
+}
+
+#study-dock-edge-trigger:hover {
+  background: #1d4ed8 !important;
+  transform: translateX(-3px) !important;
+}
+
+#study-dock-edge-trigger .edge-badge {
+  background: #ffffff !important;
+  color: #2563eb !important;
+  font-size: 9.5px !important;
+  font-weight: 800 !important;
+  padding: 1px 4px !important;
+  border-radius: 6px !important;
+}
+
+/* Hàng nút xuất trực tiếp 1 chạm */
+.dock-actions-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  gap: 6px !important;
+}
+
+.dock-btn {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  padding: 6px 4px !important;
+  border-radius: 8px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  border: 1px solid transparent !important;
+  text-align: center !important;
+  transition: all 0.15s ease !important;
+  white-space: nowrap !important;
+}
+
+.dock-btn-icon {
+  font-size: 14px !important;
+}
+
+.dock-btn-pdf {
+  background: #eff6ff !important;
+  border-color: #bfdbfe !important;
+  color: #1d4ed8 !important;
+}
+.dock-btn-pdf:hover {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  border-color: #2563eb !important;
+}
+
+.dock-btn-word {
+  background: #f0fdf4 !important;
+  border-color: #bbf7d0 !important;
+  color: #15803d !important;
+}
+.dock-btn-word:hover {
+  background: #16a34a !important;
+  color: #ffffff !important;
+  border-color: #16a34a !important;
+}
+
+.dock-btn-more {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+.dock-btn-more:hover {
+  background: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dock-btn-pdf { background: #1e3a8a !important; border-color: #2563eb !important; color: #bfdbfe !important; }
+  .dock-btn-pdf:hover { background: #2563eb !important; color: #fff !important; }
+  .dock-btn-word { background: #14532d !important; border-color: #16a34a !important; color: #bbf7d0 !important; }
+  .dock-btn-word:hover { background: #16a34a !important; color: #fff !important; }
+  .dock-btn-more { background: #1e293b !important; border-color: #475569 !important; color: #e2e8f0 !important; }
+  .dock-btn-more:hover { background: #334155 !important; }
+}
+
+.dock-footer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding-top: 6px !important;
+  border-top: 1px solid #f1f5f9 !important;
+  font-size: 11px !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dock-footer { border-color: #1e293b !important; }
+}
+
+.dock-link {
+  background: transparent !important;
+  border: none !important;
+  color: #64748b !important;
+  cursor: pointer !important;
+  font-size: 11px !important;
+  padding: 0 !important;
+}
+.dock-link:hover { color: #2563eb !important; text-decoration: underline !important; }
+
+/* 7. Modal Chọn Định Dạng Xuất Khoa Học */
+#study-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483647 !important;
+  background: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(4px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  animation: fadeInModal 0.15s ease-out !important;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.study-dialog-card {
+  background: #ffffff !important;
+  width: 100% !important;
+  max-width: 520px !important;
+  border-radius: 16px !important;
+  padding: 22px !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+  position: relative !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .study-dialog-card { background: #0f172a !important; color: #f8fafc !important; border: 1px solid #334155 !important; }
+}
+
+.dialog-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 14px !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dialog-header { border-color: #1e293b !important; }
+}
+
+.dialog-title {
+  margin: 0 !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dialog-title { color: #f8fafc !important; }
+}
+
+.dialog-close {
+  background: transparent !important;
+  border: none !important;
+  font-size: 20px !important;
+  color: #64748b !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
+}
+
+.dialog-close:hover { color: #0f172a !important; }
+
+.dialog-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+}
+
+.format-option {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 4px !important;
+  padding: 12px !important;
+  border-radius: 10px !important;
+  border: 1.5px solid #e2e8f0 !important;
+  background: #f8fafc !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  transition: all 0.15s ease !important;
+}
+
+.format-option:hover {
+  border-color: #2563eb !important;
+  background: #eff6ff !important;
+  transform: translateY(-1.5px) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .format-option { background: #1e293b !important; border-color: #334155 !important; }
+  .format-option:hover { background: #1e3a8a !important; border-color: #60a5fa !important; }
+}
+
+.fmt-head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  color: #0f172a !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .fmt-head { color: #f8fafc !important; }
+}
+
+.fmt-desc {
+  font-size: 11px !important;
+  color: #64748b !important;
+  line-height: 1.35 !important;
+}
+
+/* 8. Toast Notification nổi ở giữa trên cùng màn hình (Top-Center Floating Snack) */
+#study-toast {
+  position: fixed !important;
+  top: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  right: auto !important;
+  bottom: auto !important;
+  background: #0f172a !important;
+  color: #ffffff !important;
+  padding: 8px 16px !important;
+  border-radius: 9999px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  z-index: 2147483647 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  animation: toastSlideDown 0.2s ease-out !important;
+  max-width: 90vw !important;
+  pointer-events: none !important;
+}
+
+@keyframes toastSlideDown {
+  from { transform: translate(-50%, -15px); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
