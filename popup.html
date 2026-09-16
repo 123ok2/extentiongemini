@@ -2,232 +2,74 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Study Exporter</title>
-  <style>
-    body {
-      width: 330px;
-      margin: 0;
-      padding: 16px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      color: #0f172a;
-      background: #f8fafc;
-    }
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid #e2e8f0;
-      margin-bottom: 12px;
-    }
-    .logo {
-      font-size: 24px;
-    }
-    .title-box h2 {
-      margin: 0;
-      font-size: 15px;
-      font-weight: 700;
-      color: #1e293b;
-    }
-    .title-box p {
-      margin: 2px 0 0 0;
-      font-size: 11px;
-      color: #64748b;
-    }
-    .status-card {
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 10px;
-      padding: 10px 12px;
-      margin-bottom: 12px;
-      font-size: 12px;
-    }
-    .status-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
-    }
-    .status-row:last-child {
-      margin-bottom: 0;
-    }
-    .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 11px;
-    }
-    .badge-gemini { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
-    .badge-chatgpt { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
-    .badge-none { background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; }
-
-    .action-section {
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #64748b;
-      margin-bottom: 6px;
-    }
-    .grid-btn {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 9px 8px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      border: 1px solid transparent;
-      transition: all 0.15s ease;
-    }
-    .btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-    .btn-pdf { background: #ef4444; color: #ffffff; }
-    .btn-pdf:hover:not(:disabled) { background: #dc2626; }
-    .btn-word { background: #2563eb; color: #ffffff; }
-    .btn-word:hover:not(:disabled) { background: #1d4ed8; }
-    .btn-md { background: #7c3aed; color: #ffffff; }
-    .btn-md:hover:not(:disabled) { background: #6d28d9; }
-    .btn-html { background: #059669; color: #ffffff; }
-    .btn-html:hover:not(:disabled) { background: #047857; }
-
-    .scope-selector {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 10px;
-      background: #e2e8f0;
-      padding: 3px;
-      border-radius: 8px;
-    }
-    .scope-btn {
-      flex: 1;
-      border: none;
-      padding: 6px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      cursor: pointer;
-      background: transparent;
-      color: #475569;
-    }
-    .scope-btn.active {
-      background: #ffffff;
-      color: #0f172a;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-
-    .tip-box {
-      background: #fefce8;
-      border: 1px solid #fef08a;
-      border-radius: 8px;
-      padding: 8px 10px;
-      font-size: 11px;
-      color: #854d0e;
-      margin-bottom: 12px;
-      line-height: 1.4;
-    }
-
-    .tools-row {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-    .tool-btn {
-      flex: 1;
-      padding: 6px 8px;
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      color: #475569;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-    }
-    .tool-btn:hover {
-      background: #f1f5f9;
-      color: #1e293b;
-      border-color: #94a3b8;
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 11px;
-      color: #94a3b8;
-      border-top: 1px solid #e2e8f0;
-      padding-top: 8px;
-    }
-  </style>
+  <link rel="stylesheet" href="popup.css">
 </head>
 <body>
+  <!-- Header -->
   <div class="header">
-    <span class="logo">📐</span>
-    <div class="title-box">
-      <h2>AI Study Exporter</h2>
-      <p>Bảo toàn công thức Toán & Bảng biểu</p>
+    <div class="logo">
+      <img src="icons/icon48.png" alt="Logo" width="22" height="22">
+      <span>Study Exporter</span>
+    </div>
+    <span class="version">v2.6.0</span>
+  </div>
+
+  <!-- Khung Kích hoạt (Hiện khi CHƯA kích hoạt) -->
+  <div id="activation-box" class="card activation-card">
+    <label for="user-key" class="card-title">🔑 Kích hoạt bản quyền</label>
+    <div class="input-group">
+      <input type="text" id="user-key" placeholder="Nhập key tại đây..." autocomplete="off">
+      <button id="btn-activate">Kích hoạt</button>
+    </div>
+    <div id="license-status" class="status-badge status-inactive">
+      🔴 Chưa kích hoạt bản quyền
     </div>
   </div>
 
-  <div class="status-card">
-    <div class="status-row">
-      <span>Nền tảng:</span>
-      <span id="site-badge" class="badge badge-none">Đang kiểm tra...</span>
+  <!-- Thông báo & Hướng dẫn khi ĐÃ kích hoạt -->
+  <div id="activated-banner" class="card active-card" style="display: none;">
+    <div class="status-badge status-active">
+      🟢 Bản quyền đã kích hoạt
     </div>
-    <div class="status-row">
-      <span>Số tin nhắn nhận diện:</span>
-      <strong id="total-msgs">0</strong>
-    </div>
-    <div class="status-row">
-      <span>Đang tick chọn:</span>
-      <strong id="selected-msgs" style="color: #2563eb;">0 mục</strong>
+
+    <!-- Khung Hướng dẫn sử dụng các nút chức năng -->
+    <div class="activated-guide">
+      <div class="guide-title">💡 Hướng dẫn sử dụng trên trang Web AI:</div>
+      <ul class="guide-list">
+        <li><strong>⚡ Xuất Bài Học:</strong> Nhấp để xuất toàn bộ hội thoại hiện tại (Docx/PDF/Markdown).</li>
+        <li><strong>☑️ Ô chọn (Checkbox):</strong> Tích chọn câu trả lời cụ thể nếu chỉ muốn xuất các đoạn cần thiết.</li>
+        <li><strong>🔄 Bỏ tích:</strong> Bỏ đánh dấu nhanh tất cả các câu đã chọn trên màn hình.</li>
+      </ul>
     </div>
   </div>
 
-  <div class="tip-box" id="tip-box">
-    💡 <strong>Mẹo</strong>: Bạn có thể tick chọn từng tin nhắn trên Gemini, hoặc nhấn <strong>"Tải Toàn Bộ"</strong> ngay bên dưới.
-  </div>
-
-  <div class="action-section">
-    <div class="section-title">Phạm vi tải</div>
-    <div class="scope-selector">
-      <button id="scope-all" class="scope-btn active">Toàn bộ cuộc trò chuyện</button>
-      <button id="scope-selected" class="scope-btn">Chỉ phần đã chọn</button>
+  <!-- Khung Mua Key & Giới thiệu tính năng -->
+  <div class="card info-card">
+    <div class="pricing-banner">
+      <div class="price-badge">20.000đ</div>
+      <div class="pricing-content">
+        <span class="pricing-title">Mua key sử dụng vĩnh viễn</span>
+        <div class="contact-action">
+          <span>💬 Zalo: <strong id="phone-number">0868.640.898</strong></span>
+       
+        </div>
+      </div>
     </div>
-
-    <div class="section-title">Tải nhanh về máy</div>
-    <div class="grid-btn">
-      <button class="btn btn-pdf" data-fmt="pdf">📄 Tải File PDF</button>
-      <button class="btn btn-word" data-fmt="word">📝 Tải File Word</button>
-      <button class="btn btn-md" data-fmt="md">📜 Tải Markdown</button>
-      <button class="btn btn-html" data-fmt="html">🌐 Tải File HTML</button>
-    </div>
-
-    <div class="tools-row">
-      <button id="btn-rescan-tab" class="tool-btn">🔄 Quét lại trang</button>
-      <button id="btn-reload-tab" class="tool-btn">🔁 Tải lại trang (F5)</button>
+    
+    <div class="product-info">
+      <div class="info-title">📌 TÍNH NĂNG NỔI BẬT</div>
+      <ul class="feature-list">
+        <li>Xuất chat Gemini giữ nguyên định dạng.</li>
+        <li>Hỗ trợ công thức toán LaTeX, Bảng biểu, Code.</li>
+        <li>Tích hợp nút tải trực tiếp trên giao diện web AI.</li>
+      </ul>
     </div>
   </div>
 
+  <!-- Footer -->
   <div class="footer">
-    Hỗ trợ 100% Gemini & ChatGPT • Offline An Toàn
+    Hệ thống kích hoạt bản quyền tự động
   </div>
 
   <script src="popup.js"></script>
