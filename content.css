@@ -83,13 +83,3 @@
   opacity: 0 !important;
   pointer-events: none !important;
 }
-/* Hiệu ứng nhấp nháy thu hút sự chú ý khi mới kích hoạt */
-@keyframes study-pulse-glow {
-  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); transform: scale(1); }
-  50% { box-shadow: 0 0 0 12px rgba(37, 99, 235, 0); transform: scale(1.03); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); transform: scale(1); }
-}
-
-#study-float-dock {
-  animation: study-pulse-glow 2s infinite ease-in-out !important;
-}

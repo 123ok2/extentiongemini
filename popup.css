@@ -76,7 +76,7 @@ input[type="text"]:focus {
   border-color: #1a73e8;
 }
 
-button#btn-activate {
+button#activate-btn {
   background: #1a73e8;
   color: #ffffff;
   border: none;
@@ -88,13 +88,8 @@ button#btn-activate {
   transition: background 0.2s;
 }
 
-button#btn-activate:hover {
+button#activate-btn:hover {
   background: #1557b0;
-}
-
-button#btn-activate:disabled {
-  background: #a0c3ff;
-  cursor: not-allowed;
 }
 
 /* Status Badge */
@@ -181,21 +176,6 @@ button#btn-activate:disabled {
   align-items: center;
   gap: 6px;
   font-size: 12px;
-}
-
-button#btn-copy-zalo {
-  background: #f1f3f4;
-  border: 1px solid #dadce0;
-  color: #3c4043;
-  border-radius: 4px;
-  padding: 2px 6px;
-  font-size: 11px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-button#btn-copy-zalo:hover {
-  background: #e8eaed;
 }
 
 /* Giới thiệu tính năng */
